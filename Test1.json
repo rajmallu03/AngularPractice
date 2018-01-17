@@ -1,0 +1,86 @@
+[
+{
+"question":"Which is a valid keyword in java?",
+"A":"interface",
+"B":"string",
+"C":"Float",
+"D":"unsigned",
+"E":"struct",
+"answer":"A"
+},
+{
+"question":"Which is a reserved word in the Java programming language?",
+"A":"method",
+"B":"native",
+"C":"subclasses",
+"D":"reference",
+"E":"array",
+"answer":"B"
+},
+{
+"question":"Which will legally declare, construct, and initialize an array?",
+"A":"int [] myList = {'1', '2', '3'};",
+"B":"int [] myList = (5, 8, 2);",
+"C":"int myList [] [] = {4,9,7,0};",
+"D":"int myList [] = {4, 3, 7};",
+"answer":"D"
+},
+{
+"question":"Which one of these lists contains only Java programming language keywords?",
+"A":"class, if, void, long, Int, continue",
+"B":"goto, instanceof, native, finally, default, throws",
+"C":"try, virtual, throw, final, volatile, transient",
+"D":"strictfp, constant, super, implements, do",
+"E":"byte, break, assert, switch, include",
+"answer":"B"
+},
+{
+"question":"Which one of the following will declare an array and initialize it with five numbers?",
+"A":"Array a = new Array(5);",
+"B":"int [] a = {23,22,21,20,19};",
+"C":"int a [] = new int[5];",
+"D":"int [5] array;",
+"answer":"B"
+},
+{
+"question":"Which is the valid declarations within an interface definition?",
+"A":"public double methoda();",
+"B":"public final double methoda();",
+"C":"static void methoda(double d1);",
+"D":"protected void methoda(double d1);",
+"answer":"A"
+},
+{
+"question":"Which one is a valid declaration of a boolean?",
+"A":"boolean b1 = 0;",
+"B":"boolean b2 = 'false';",
+"C":"boolean b3 = false;",
+"D":"boolean b4 = Boolean.false();",
+"E":"boolean b5 = no;",
+"answer":"C"
+},
+{
+"question":"Which is a valid declarations of a String?",
+"A":"String s1 = null;",
+"B":"String s2 = 'null';",
+"C":"String s3 = (String) 'abc';",
+"D":"String s4 = (String) '\ufeed';",
+"answer":"A"
+},
+{
+"question":"What is the numerical range of a char?",
+"A":"-128 to 127",
+"B":"-(2^15) to (2^15) - 1",
+"C":"0 to 32767",
+"D":"0 to 65535",
+"answer":"D"
+},
+{
+"question":"Which is true about an anonymous inner class?",
+"A":"It can extend exactly one class and implement exactly one interface.",
+"B":"It can extend exactly one class and can implement multiple interfaces.",
+"C":"It can extend exactly one class or implement exactly one interface.",
+"D":"It can implement multiple interfaces regardless of whether it also extends a class.",
+"answer":"C"
+}
+]
