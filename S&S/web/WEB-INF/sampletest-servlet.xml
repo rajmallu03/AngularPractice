@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="
+      http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans-3.2.xsd" >
+    <bean id="viewResolver"
+          class="org.springframework.web.servlet.view.ResourceBundleViewResolver">
+        <property name="basename" value="views" />
+    </bean>
+
+    <bean id="dataSource"
+          class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
+        <property name="url"
+                  value="jdbc:sqlserver://DESKTOP-LK84IT9\MSSQLSERVER2012;databaseName=ss" />
+        <property name="username" value="sa" />
+        <property name="password" value="WeLove9SA" />
+
+    </bean>
+
+    <bean name="paramResolver"
+          class="org.springframework.web.servlet.mvc.multiaction.ParameterMethodNameResolver">
+        <property name="paramName" value="action"></property>
+    </bean>
+
+    <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <props>
+                <prop key="/sampleController.htm">sampleController</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="sampleController" class="com.test.web.TestController">
+        <property name="methodNameResolver"> <ref bean="paramResolver" /> </property>
+        <property name="sampleService" ref="sampleService" />
+        <property name="mailsender" ref="mailSender"/>
+    </bean>
+
+
+
+    <bean id="sampleService" class="com.test.service.SampleService">
+    <property name="databaseFile" ref="databaseFile" />
+</bean>
+
+    <bean id="databaseFile" class="com.test.dao.DatabaseFile">
+        <property name="transactionManager" ref="transactionManager" />
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+    <bean id="transactionManager"
+          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+    <bean id="sessionlogin" class="com.test.SessionLogin"/>
+    <bean id="random" class="com.test.random"/>
+
+
+    <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+
+
+    </bean>
+
+
+    <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <property name="host" value="smtp.sendgrid.net" />
+        <property name="port" value="587" />
+        <property name="username" value="apikey" />
+        <property name="password" value="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" />
+        <property name="javaMailProperties">
+            <props>
+                <prop key="mail.transport.protocol">smtp</prop>
+                <prop key="mail.smtp.auth">true</prop>
+                <prop key="mail.smtp.starttls.enable">true</prop>
+                <prop key="mail.debug">false</prop>
+            </props>
+        </property>
+    </bean>
+    <bean id="mailMail" class="com.test.web.TestController">
+        <property name="mailsender" ref="mailSender" />
+    </bean>
+
+
+
+
+</beans>

@@ -1,0 +1,287 @@
+* {margin: 0; padding: 0;}
+
+html {
+    height: 100%;
+    background-color:#666666;
+
+}
+
+body {
+
+
+}
+
+#msform {
+    width: 300px;
+    margin: -40px auto;
+    text-align: center;
+    position: relative;
+
+}
+#field_size{
+    width:200%;
+    margin-left:-200px;
+}
+/*Hide all except first fieldset*/
+#msform fieldset:not(:first-of-type) {
+    display: none;
+}
+
+#msform .action-button {
+    width: 100px;
+    background: #27AE60;
+    font-weight: bold;
+    color: white;
+}
+#msform .action-button:hover, #msform .action-button:focus {
+    box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
+}
+#progressbar {
+    margin-bottom: 10px;
+    margin-left:-270px;
+    overflow: hidden;
+    /*CSS counters to number the steps*/
+    counter-reset: step;
+    width:300%;
+
+
+}
+
+#progressbar li {
+    list-style-type: none;
+    color: black;
+    text-transform: uppercase;
+    font-size: 15px;
+    width: 13.33%;
+    float: left;
+    position: relative;
+}
+#progressbar li:before {
+    content: counter(step);
+    counter-increment: step;
+    width: 20px;
+    line-height: 20px;
+    display: block;
+    font-size: 10px;
+    font-weight:bold;
+    color: white;
+    background: #2980b9;
+    border-radius: 3px;
+    margin: 0 auto 5px auto;
+}
+/*progressbar connectors*/
+#progressbar li:after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: #2980b9;
+    position: absolute;
+    left: -50%;
+    top: 9px;
+    z-index: -1; /*put it behind the numbers*/
+}
+#progressbar li:first-child:after {
+    /*connector not needed before the first step*/
+    content: none;
+}
+/*marking active/completed steps green*/
+/*The number of the step and the connector before it = green*/
+#progressbar li.active:before,  #progressbar li.active:after{
+    background: white;
+    color: black;
+}
+
+.icon-background1 {
+    color:#2980b9
+}
+
+.form-basic{
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 55px;
+    font: bold 14px sans-serif;
+    text-align: center;
+}
+
+.form-basic .form-row{
+    text-align: left;
+    padding:3px;
+}
+
+.form-basic .form-title-row{
+    text-align: center;
+    margin-bottom: 35px;
+
+}
+
+/* The form title */
+
+.form-basic h1{
+    display: inline-block;
+    box-sizing: border-box;
+    color:white;
+    font-size: 24px;
+    padding: 0 10px 15px;
+    border-bottom: 2px solid #6caee0;
+    margin: 0;
+}
+
+.form-basic .form-row > label span{
+    display: inline-block;
+    box-sizing: border-box;
+    color:white;
+    width: 180px;
+    text-align: right;
+    vertical-align: top;
+    padding: 12px 25px;
+}
+
+.form-basic input{
+    color:  #5f5f5f;
+    box-sizing: border-box;
+    width: 340px;
+    box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.08);
+    padding: 12px;
+    border: 1px solid #dbdbdb;
+}
+
+.form-basic input[type=radio],
+.form-basic input[type=checkbox]{
+    box-shadow: none;
+    width: auto;
+}
+
+.form-basic input[type=checkbox]{
+    margin-top: 13px;
+}
+
+.form-basic select{
+    background-color: #ffffff;
+    color:  #5f5f5f;
+    box-sizing: border-box;
+    width: 340px;
+    box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.08);
+    padding: 12px 8px;
+    border: 1px solid #dbdbdb;
+}
+
+.form-basic textarea{
+    color:  #5f5f5f;
+    box-sizing: border-box;
+    width: 340px;
+    height: 80px;
+    box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.08);
+    font: normal 13px sans-serif;
+    padding: 12px;
+    border: 1px solid #dbdbdb;
+    resize: vertical;
+}
+
+.form-basic .form-radio-buttons{
+    display: inline-block;
+    vertical-align: top;
+}
+
+.form-basic .form-radio-buttons > div{
+    margin-top: 10px;
+}
+
+.form-basic .form-radio-buttons label span{
+    margin-left: 8px;
+    color:white;
+    font-weight: normal;
+}
+
+.form-basic .form-radio-buttons input{
+    width: auto;
+}
+
+.form-basic button{
+    display: block;
+    border-radius: 2px;
+    background-color:  #6caee0;
+    color: #ffffff;
+    font-weight: bold;
+    box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.08);
+    padding: 14px 22px;
+    border: 0;
+    margin: 40px 183px 0;
+}
+
+/*	Making the form responsive. Remove this media query
+    if you don't need the form to work on mobile devices. */
+
+@media (max-width: 600px) {
+
+    .form-basic{
+        padding: 30px;
+        max-width: 480px;
+    }
+
+    .form-basic .form-row{
+        max-width: 300px;
+        margin: 25px auto;
+        text-align: left;
+    }
+
+    .form-basic .form-title-row{
+        margin-bottom: 50px;
+    }
+
+    .form-basic .form-row > label span{
+        display: block;
+        text-align: left;
+        padding: 0 0 15px;
+    }
+
+    .form-basic select{
+        width: 240px;
+    }
+
+    .form-basic input[type=checkbox]{
+        margin-top:0;
+    }
+
+    .form-basic .form-radio-buttons > div{
+        margin: 0 0 10px;
+    }
+
+    .form-basic button{
+        margin: 0;
+    }
+
+}
+
+#form-table {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 80%;
+}
+
+#form-table td{
+
+    padding: 8px;
+    color: white;
+    text-align:right;
+}
+#form-table th {
+
+    padding: 8px;
+    color: #5f5f5f;
+    text-align:center;
+}
+#form-table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    color:white;
+}
+
+.auto{
+    display:block;
+    border: 0 solid red;
+    padding:5px;
+    margin-top:5px;
+    width:100%;
+    height:370px;
+    overflow:auto;
+}
